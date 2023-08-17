@@ -12,21 +12,20 @@
 // // inp1.addEventListener("click", hdlInp1Click )
 
 
-
-
 /* DOM : HW01 
 ตรวจสอบ username + pass จาก input และข้อมูล user 
 ถ้่่าlogin ผ่าน ให้ขึ้น login success สีเขียว 
 ุ่าไำม่ผ่าน ให้ขึ้นinvalid และสีแดงที่ output 
 
 Challenge 1 logingได้ 3 ครั้ง ถ้าไม่ผ่านให้ disable ตัส inout ทั้งหมด
-2 แสดงผล 3 วิแล้วหายไป  */ 
+2 แสดงผล 3 วิแล้วหายไป  */
 
-const user = [
-    {name: "Andy" , password : "1234"},
-    {name: "Bobby" , password : "1234"},
-    {name: "Candy" , password : "1234"},
-    {name: "Danny" , password : "1234"},
+
+const users = [
+    { name: "Andy", password: "1234" },
+    { name: "Bobby", password: "1234" },
+    { name: "Candy", password: "1234" },
+    { name: "Danny", password: "1234" },
 ]
 
 // ตัวแปร username pass มาจาก input
@@ -50,14 +49,47 @@ const user = [
 */
 
 
-let inp1 = document.querySelector("#username") 
-let inp2 = document.querySelector("#password") 
+let inp1 = document.querySelector("#username")
+let inp2 = document.querySelector("#password")
 let output = document.querySelector(".output")
 let foundUser = null
-let loginForm = document.querySelector(#"loginForm")
-
-
-
+let loginForm = document.querySelector("#loginform")
 
 // inp1.value คือ username
 // inp2.value คือ password
+
+// refactor fucntion 
+// กำหนด parameter กับ return 
+// param : username, password 
+//return : user object หรือuser element  หรือ false 
+
+
+
+
+const checkUser = (username, password) => {
+    let resultUser = users.find( el => el.name === inp1.value)
+    if (!resultUser) {// แปลว่าไม่เจอ  user
+      
+        return false 
+    } 
+    if(resultUser.password !== inp2.value) {
+        
+        return false
+    }
+    return resultUser
+}
+
+const hdlsubmit = (e) => {
+    e.preventDefault()
+    foundUser = checkUser(inp1.value, inp2.value) 
+    if(foundUser) { 
+          output.innerText = "login Successful" 
+          output.style.color = "green"
+    } else { 
+        output.style.color = "Red"
+        output.innerText = "invalid login"
+    }
+
+}
+
+loginForm.addEventListener("submit", hdlsubmit)
