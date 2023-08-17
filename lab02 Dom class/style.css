@@ -1,0 +1,20 @@
+*{
+     box-sizing: border-box;
+} 
+
+
+h1 {
+    cursor: pointer;
+}
+.text-red { 
+    color: red;
+    border: dashed ;
+    width: min-content ;
+}
+
+.text-blue{
+    color: blue;
+    border: solid;
+    width: min-content;
+}
+

@@ -1,0 +1,18 @@
+*{ 
+    box-sizing: border-box;
+}
+
+#loginform{
+    width: 80%;
+    border: solid #ddd;
+    padding: 1rem ;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: auto;
+}
+
+#loginform > input {
+    padding: 8px;
+    font-size: 20px; 
+}
